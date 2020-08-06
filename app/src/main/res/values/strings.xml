@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Career Choice</string>
+    <string name="Career_Choice">Career Choice</string>
+    <string name="remove_from_cart">Remove from cart</string>
+    <string name="cart">Cart</string>
+    <string name="welcome">Welcome</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="no_account_yet_create_one_here">No account yet? create one here</string>
+    <string name="registration">Registration</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="mobile">Mobile</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="gender">Gender</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="login">Login</string>
+    <string name="bookway">BookWay</string>
+    <string name="welcome_guest">Welcome, guest</string>
+    <string name="categories">Categories</string>
+    <string name="place_order">Place order</string>
+    <string name="er_no_156200316105">ER_NO:156200316105</string>
+    <string name="bansi_parmar">BANSI PARMAR</string>
+    <string name="shweta_vyas">SHWETA VYAS</string>
+    <string name="er_no_1562003167">ER_NO:1562003167</string>
+    <string name="er_no_1562003553">ER_NO:1562003553</string>
+    <string name="thank_you_for_visit">THANK YOU FOR VISIT</string>
+    <string name="my_orders">My Orders</string>
+    <string name="logout">Logout</string>
+    <string name="Fields">Fields</string>
+    <string name="Colleges">Colleges</string>
+    <string name="about">About</string>
+    <string name="feedback">Feedback</string>
+    <string name="android_developer">Android Developer</string>
+
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Hello Food!</string>
+    <string name="slide_1_desc">The Easiest Way To Choice Career For Your Future In this APP</string>
+
+    <string name="slide_2_title">Select Your Best Fields</string>
+    <string name="slide_2_desc">Easy For you To Choice a Field </string>
+
+    <string name="slide_3_title">Best Colleges</string>
+    <string name="slide_3_desc">Best Colleges is you have to select for a study and All Colleges details are provided</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+</resources>
