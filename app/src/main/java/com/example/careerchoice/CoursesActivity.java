@@ -16,10 +16,13 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.baoyz.widget.PullRefreshLayout;
 import com.example.careerchoice.models.CoursesModel;
 import com.example.careerchoice.models.CoursesResponseModel;
 import com.example.careerchoice.network.NetworkClient;
 import com.example.careerchoice.network.NetworkService;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -33,12 +36,13 @@ public class CoursesActivity extends AppCompatActivity {
     RecyclerView booksRecyclerView;
     ImageView imageView;
     TextView textView;
+    PullRefreshLayout pullRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
-
+        SlidrInterface slidrInterface = Slidr.attach(this);
         textView = findViewById(R.id.text_toolbar_title_courses);
         textView.setText(getIntent().getStringExtra("field_name"));
         imageView = findViewById(R.id.image_back);
@@ -51,7 +55,17 @@ public class CoursesActivity extends AppCompatActivity {
         booksRecyclerView = (RecyclerView) findViewById(R.id.courses_recycler_view);
         booksRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         booksRecyclerView.setHasFixedSize(true);
+
+        pullRefreshLayout = findViewById(R.id.refresh);
+        pullRefreshLayout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getBooks();
+                pullRefreshLayout.setRefreshing(false);
+            }
+        });
         getBooks();
+
     }
 
     private void getBooks() {

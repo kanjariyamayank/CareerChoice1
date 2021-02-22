@@ -5,8 +5,8 @@
     android:id="@+id/bottom_navigation_View"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#FAFAFA"
+    android:orientation="vertical"
     tools:context=".FieldsActivity">
 
 
@@ -51,8 +51,9 @@
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        <com.baoyz.widget.PullRefreshLayout
             android:id="@+id/refresh"
+            app:refreshType="water_drop"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -61,6 +62,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </com.baoyz.widget.PullRefreshLayout>
     </LinearLayout>
 </LinearLayout>

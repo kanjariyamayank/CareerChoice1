@@ -14,6 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
+
 public class CareerBookActivity extends AppCompatActivity {
 
     ListView pdfView;
@@ -23,6 +26,7 @@ public class CareerBookActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_career_book);
+        SlidrInterface slidrInterface = Slidr.attach(this);
         imageView = findViewById(R.id.image_back);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

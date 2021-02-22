@@ -13,6 +13,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.google.android.material.card.MaterialCardView;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
+
 public class FeedbackActivity extends AppCompatActivity {
 
     EditText feedback_edit;
@@ -28,6 +32,7 @@ public class FeedbackActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed_back);
+        SlidrInterface slidrInterface = Slidr.attach(this);
         feedback_edit = findViewById(R.id.feedback_edit);
         ratingBar = findViewById(R.id.rating_app);
         textRating = findViewById(R.id.rating_text);

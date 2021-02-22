@@ -68,8 +68,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
-                    app:passwordToggleEnabled="true">
+                    android:layout_margin="2dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/input_email"

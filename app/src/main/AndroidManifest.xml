@@ -19,20 +19,64 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".About_Sanjay_Details_Activity"></activity>
-        <activity android:name=".About_Tejas_Details_Activity" />
-        <activity android:name=".About_Ram_Details_Activity" />
-        <activity android:name=".Courses_Details_Activity" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".CoursesActivity" />
-        <activity android:name=".PDFOpen" />
-        <activity android:name=".CareerBookActivity" />
-        <activity android:name=".FeedbackActivity" />
-        <activity android:name=".FieldsActivity" />
+        <activity android:name=".FavoriteActivity"></activity>
+        <activity
+            android:name=".Colleges_Details_Activity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".CollegeFieldsActivity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".College_Categories_Activity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".Colleges_Activity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".contactActivity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".WebsiteActivity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".About_Sanjay_Details_Activity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".About_Tejas_Details_Activity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".About_Ram_Details_Activity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".Courses_Details_Activity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".AboutActivity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".CoursesActivity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".PDFOpen"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".CareerBookActivity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".FeedbackActivity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".FieldsActivity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".CategoriesActivity" />
-        <activity android:name=".About_Mayank_Details_Activity" />
+        <activity android:name=".Demo" />
+        <activity
+            android:name=".CategoriesActivity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity
+            android:name=".About_Mayank_Details_Activity"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
         <activity android:name=".ReagistrationActivity" />
         <activity
             android:name=".DashboardActivity"

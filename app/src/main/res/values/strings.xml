@@ -52,4 +52,6 @@
 
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>
+    <string name="contactus">You have any problem with this app  you can contact us any time and your problem is solved in 24 hours.</string>
+    <string name="favorite">Favorite</string>
 </resources>

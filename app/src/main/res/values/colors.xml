@@ -4,6 +4,13 @@
     <color name="colorPrimaryDark">#01579B</color>
     <color name="colorAccent">#101010</color>
     <color name="black">#000000</color>
+
+    <color name="colorPrimary1">#673AB7</color>
+    <color name="colorPrimaryDark1">#151515</color>
+    <color name="colorAccent1">#FF5252</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorBackground">#ECECEC</color>
+
     <!-- <color name="colorPrimary">#009688</color>
      <color name="colorPrimaryDark">#00695C</color>
      <color name="colorAccent">#101010</color>-->
@@ -51,6 +58,7 @@
     <color name="solidCircle">#AAFFFFFF</color>
     <color name="circleBorder">#50FFFFFF</color>
     <color name="gradEnd">#67EFC8</color>
+    <color name="red">#E4190A</color>
     <color name="gradStart">#63C9FF</color>
     <color name="followersBg">#65DCE5</color>
     <color name="followingBg">#49BEFF</color>
