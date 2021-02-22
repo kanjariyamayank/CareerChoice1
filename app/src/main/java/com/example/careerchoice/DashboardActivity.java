@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.careerchoice.utils.Constants;
@@ -21,8 +22,9 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 public class DashboardActivity extends AppCompatActivity {
 
     TextView textUsername, textEmail, text_lastname;
-    LinearLayout shareapp, feedback, careerBook, sliderfield,About;
+    LinearLayout shareapp, feedback, careerBook, sliderfield,About,layout_college,setting;
     DrawerLayout drawerLayout;
+    CardView cardViewcolleges;
     LinearLayout logout, field;
     private long backpressedTime;
     ImageView uplode;
@@ -38,6 +40,28 @@ public class DashboardActivity extends AppCompatActivity {
         textUsername = findViewById(R.id.text_username);
         textEmail = findViewById(R.id.text_email);
         text_lastname = findViewById(R.id.text_lastname);
+        cardViewcolleges = findViewById(R.id.card_colleges);
+        cardViewcolleges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashboardActivity.this, College_Categories_Activity.class);
+                startActivity(intent);
+            }
+        });
+        LinearLayout layout_contect = findViewById(R.id.layout_contect_us);
+        layout_contect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DashboardActivity.this,contactActivity.class));
+            }
+        });
+        LinearLayout layout_website = findViewById(R.id.layout_Website);
+        layout_website.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DashboardActivity.this,WebsiteActivity.class));
+            }
+        });
         About = findViewById(R.id.layout_about);
         About.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,11 +78,28 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        layout_college = findViewById(R.id.layout_college);
+        layout_college.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashboardActivity.this,CollegeFieldsActivity.class);
+                startActivity(intent);
+            }
+        });
         field = findViewById(R.id.card_field);
         field.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DashboardActivity.this, CategoriesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView favorite = findViewById(R.id.card_favorite);
+        favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashboardActivity.this, FavoriteActivity.class);
                 startActivity(intent);
             }
         });
@@ -77,6 +118,13 @@ public class DashboardActivity extends AppCompatActivity {
                 Intent intent = new Intent(DashboardActivity.this, FeedbackActivity.class);
                 startActivity(intent);
 
+            }
+        });
+        setting = findViewById(R.id.setting);
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DashboardActivity.this,Demo.class));
             }
         });
         shareapp = findViewById(R.id.share_app);
@@ -191,4 +239,6 @@ public class DashboardActivity extends AppCompatActivity {
             Toast.makeText(this, "Press Back Again to Exit App", Toast.LENGTH_SHORT).show();
         backpressedTime = System.currentTimeMillis();
     }
+
+
 }

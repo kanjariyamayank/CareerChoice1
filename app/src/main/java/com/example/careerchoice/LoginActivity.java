@@ -10,6 +10,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +25,7 @@ import com.example.careerchoice.models.LoginResponseModel;
 import com.example.careerchoice.network.NetworkClient;
 import com.example.careerchoice.network.NetworkService;
 import com.example.careerchoice.utils.Constants;
+import com.example.careerchoice.utils.MyBounceInterpolator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -77,6 +80,10 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.bounce_animation);
+                MyBounceInterpolator interpolator = new MyBounceInterpolator(0.1, -10);
+                animation.setInterpolator(interpolator);
+                buttonLogin.startAnimation(animation);
                 if (inputEmail.getText().toString().equals("")) {
                     SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE);
                     sweetAlertDialog.setTitleText("Please Enter Email");
@@ -94,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     public void checkConnection() {

@@ -16,10 +16,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.baoyz.widget.PullRefreshLayout;
 import com.example.careerchoice.models.CategoryModel;
 import com.example.careerchoice.models.CategoryResponseModel;
 import com.example.careerchoice.network.NetworkClient;
 import com.example.careerchoice.network.NetworkService;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
 
 import java.util.List;
 
@@ -30,20 +33,23 @@ import retrofit2.Response;
 public class CategoriesActivity extends AppCompatActivity {
 
     RecyclerView categoriesRecyclerView;
-    SwipeRefreshLayout swipeRefreshLayout;
+    /*SwipeRefreshLayout swipeRefreshLayout;*/
+    PullRefreshLayout pullRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
-
-
-        swipeRefreshLayout = findViewById(R.id.refresh);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        SlidrInterface slidrInterface = Slidr.attach(this);
+        pullRefreshLayout = findViewById(R.id.refresh);
+        pullRefreshLayout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getCategories();
-                swipeRefreshLayout.setRefreshing(false);
+
+                if (pullRefreshLayout != null) {
+                    getCategories();
+                    pullRefreshLayout.setRefreshing(false);
+                }
 
             }
         });
@@ -55,7 +61,7 @@ public class CategoriesActivity extends AppCompatActivity {
             }
         });
 
-        categoriesRecyclerView = (RecyclerView) findViewById(R.id.categories_recycler_view);
+        categoriesRecyclerView = findViewById(R.id.categories_recycler_view);
         categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         categoriesRecyclerView.setHasFixedSize(true);
         getCategories();
@@ -82,14 +88,11 @@ public class CategoriesActivity extends AppCompatActivity {
                 final CategoriesAdapter categoriesAdapter = new CategoriesAdapter(categoryResponseModel.getCategories());
                 categoriesRecyclerView.setAdapter(categoriesAdapter);
                 progressDialog.cancel();
-
-
             }
-
 
             @Override
             public void onFailure(@NonNull Call<CategoryResponseModel> call, @NonNull Throwable t) {
-                Toast.makeText(CategoriesActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(CategoriesActivity.this, "Check Your Connection", Toast.LENGTH_LONG).show();
                 progressDialog.cancel();
             }
         });
@@ -110,6 +113,7 @@ public class CategoriesActivity extends AppCompatActivity {
     private class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
 
         List<CategoryModel> categories;
+
         CategoriesAdapter(List<CategoryModel> categories) {
             this.categories = categories;
         }

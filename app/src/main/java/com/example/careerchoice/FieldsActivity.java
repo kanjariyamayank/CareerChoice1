@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -15,10 +16,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.baoyz.widget.PullRefreshLayout;
 import com.example.careerchoice.models.FieldModel;
 import com.example.careerchoice.models.FieldResponseModel;
 import com.example.careerchoice.network.NetworkClient;
 import com.example.careerchoice.network.NetworkService;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
 
 import java.util.List;
 
@@ -31,20 +35,34 @@ public class FieldsActivity extends AppCompatActivity {
     RecyclerView booksRecyclerView;
     TextView textToolbarTitle;
     ImageView imageBack;
-    SwipeRefreshLayout swipeRefreshLayout;
+    /*SwipeRefreshLayout swipeRefreshLayout;*/
+    PullRefreshLayout pullRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fields);
-        swipeRefreshLayout = findViewById(R.id.refresh);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        SlidrInterface slidrInterface = Slidr.attach(this);
+        pullRefreshLayout = findViewById(R.id.refresh);
+       /* swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 getBooks();
                 swipeRefreshLayout.setRefreshing(false);
             }
-        });
+        });*/
+        pullRefreshLayout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
+           @Override
+           public void onRefresh() {
+
+               if (pullRefreshLayout!= null){
+                   getBooks();
+                   pullRefreshLayout.setRefreshing(false);
+
+               }else {
+               }
+           }
+       });
         textToolbarTitle = (TextView) findViewById(R.id.text_toolbar_title_field);
         textToolbarTitle.setText(getIntent().getStringExtra("field"));
 
@@ -60,7 +78,6 @@ public class FieldsActivity extends AppCompatActivity {
         booksRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         booksRecyclerView.setHasFixedSize(true);
         getBooks();
-
     }
 
     private void getBooks() {
@@ -84,6 +101,7 @@ public class FieldsActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<FieldResponseModel> call, Throwable t) {
                 progressDialog.cancel();
+                Toast.makeText(FieldsActivity.this,"Check your connection",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -112,7 +130,6 @@ public class FieldsActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final BookViewHolder holder, int position) {
-
 
             if (books.get(position).getName() != null && !books.get(position).getName().equals("")) {
                 holder.textName.setText(books.get(position).getName());

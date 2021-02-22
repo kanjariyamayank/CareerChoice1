@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
 
 public class About_Tejas_Details_Activity extends AppCompatActivity {
 
@@ -16,6 +18,7 @@ public class About_Tejas_Details_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about__tejas__details_);
+        SlidrInterface slidrInterface = Slidr.attach(this);
         FloatingActionButton floatingActionback = findViewById(R.id.floting_back);
         floatingActionback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,9 +52,13 @@ public class About_Tejas_Details_Activity extends AppCompatActivity {
         instagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Uri uri = Uri.parse("https://www.instagram.com/rathod_tejas_777/?hl=en");
+                Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+
+                likeIng.setPackage("com.instagram.android");
+
                 try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/rathod_tejas_777/?hl=en"));
-                    startActivity(intent);
+                    startActivity(likeIng);
                 } catch (Exception e) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/rathod_tejas_777/?hl=en")));
                 }

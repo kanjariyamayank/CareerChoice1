@@ -1,6 +1,7 @@
 package com.example.careerchoice.network;
 
 import com.example.careerchoice.models.CategoryResponseModel;
+import com.example.careerchoice.models.CollegeResponseModel;
 import com.example.careerchoice.models.CoursesResponseModel;
 import com.example.careerchoice.models.FieldResponseModel;
 import com.example.careerchoice.models.LoginResponseModel;
@@ -33,4 +34,8 @@ public interface NetworkService {
     @FormUrlEncoded
     @POST("careercurses.php")
     Call<CoursesResponseModel> getCourses(@Field("field_name") String fieldname);
+
+    @FormUrlEncoded
+    @POST("colleges.php")
+    Call<CollegeResponseModel> getCollege(@Field("field_name") String collegename);
 }

@@ -11,6 +11,8 @@ import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -18,7 +20,7 @@ import java.util.HashMap;
 public class Courses_Details_Activity extends AppCompatActivity {
 
     TextView course, time, exam_type, eligibility, Admission, Syllabus;
-    ImageView imageView, imageView_slider;
+    ImageView imageView, imageView_slider,imageAddToCart;
     TextView textView;
     SliderLayout sliderLayout;
 
@@ -29,6 +31,7 @@ public class Courses_Details_Activity extends AppCompatActivity {
 
         /*sliderLayout = findViewById(R.id.slider);*/
         imageView_slider = findViewById(R.id.image_book);
+        SlidrInterface slidrInterface = Slidr.attach(this);
         textView = findViewById(R.id.text_toolbar_title_courses_details);
         textView.setText(getIntent().getStringExtra("courses"));
         imageView = findViewById(R.id.image_back);
@@ -43,18 +46,18 @@ public class Courses_Details_Activity extends AppCompatActivity {
         eligibility = findViewById(R.id.eligibility_criteria);
         Admission = findViewById(R.id.admission);
         Syllabus = findViewById(R.id.syllabus);
-        /*Picasso.with(getApplicationContext()).load(getIntent().getStringExtra("image"))
-                .into(imageView_slider);*/
+        sliderLayout = findViewById(R.id.slider);
 
-        Picasso.get().load(getIntent().getStringExtra("image")).into(imageView_slider);
+        Picasso.with(getApplicationContext()).load(getIntent().getStringExtra("image"))
+                .into(imageView_slider);
+
+        /*Picasso.get().load(getIntent().getStringExtra("image")).into(imageView_slider);*/
         time.setText(getIntent().getStringExtra("introduction"));
         exam_type.setText(getIntent().getStringExtra("course_details"));
         eligibility.setText(getIntent().getStringExtra("eligibility_criteria"));
         Admission.setText(getIntent().getStringExtra("admission"));
         Syllabus.setText(getIntent().getStringExtra("syllabus"));
-
-
-        /*try {
+        try {
             HashMap<String, String> url_maps = new HashMap<String, String>();
             url_maps.put("image", getIntent().getStringExtra("image"));
             url_maps.put("image_1", getIntent().getStringExtra("image_1"));
@@ -76,6 +79,6 @@ public class Courses_Details_Activity extends AppCompatActivity {
 
         } catch (Exception ex) {
 
-        }*/
+        }
     }
 }

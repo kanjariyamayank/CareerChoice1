@@ -41,15 +41,6 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/text_total_amount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:textColor="@color/colorWhite"
-                android:textSize="22sp"
-                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -60,8 +51,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        <com.baoyz.widget.PullRefreshLayout
             android:id="@+id/refresh"
+            app:refreshType="water_drop"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -73,7 +65,7 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"/>
 
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </com.baoyz.widget.PullRefreshLayout>
     </LinearLayout>
 
 

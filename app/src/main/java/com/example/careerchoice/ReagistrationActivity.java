@@ -22,6 +22,8 @@ import com.example.careerchoice.models.RegistrationResponseModel;
 import com.example.careerchoice.models.StateModel;
 import com.example.careerchoice.network.NetworkClient;
 import com.example.careerchoice.network.NetworkService;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,6 +49,7 @@ public class ReagistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reagistration);
+        SlidrInterface slidrInterface = Slidr.attach(this);
         back_image = findViewById(R.id.image_back);
         inputFirstName = findViewById(R.id.input_first_name);
         inputLastName = findViewById(R.id.input_last_name);

@@ -8,6 +8,9 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
+
 public class AboutActivity extends AppCompatActivity {
 
     LinearLayout linearLayoutmayank, linearLayout_ram;
@@ -17,6 +20,7 @@ public class AboutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        SlidrInterface slidrInterface = Slidr.attach(this);
         imageView = findViewById(R.id.image_back);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
