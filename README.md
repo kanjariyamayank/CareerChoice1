@@ -10,7 +10,7 @@ All Screenshot -:
 
 
 
-<table class="center">
+<table>
   <tr>
     <td>Splash Screen</td>
      <td>Sagation Screen</td>
