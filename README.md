@@ -5,7 +5,7 @@ Data base is Connected to SQLlite With PHP.
 
 1) This image is Splash Screen.
 
-<img src="https://user-images.githubusercontent.com/68766617/128196728-0fa4da6d-8335-42be-9756-2af601737d9b.jpg" width="300" height="300">
+<img src="https://user-images.githubusercontent.com/68766617/128196728-0fa4da6d-8335-42be-9756-2af601737d9b.jpg" width="180" height="300">
 
 
 
